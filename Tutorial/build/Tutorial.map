@@ -87,7 +87,19 @@ Discarded input sections
                 0x00000000       0xc8 build/src/main.o
  .ARM.exidx.text._Z11Button_Holdv
                 0x00000000        0x8 build/src/main.o
- .llvm_addrsig  0x00000000        0x7 build/src/main.o
+ .text._Z12Do_somethingv
+                0x00000000        0x4 build/src/main.o
+ .ARM.exidx.text._Z12Do_somethingv
+                0x00000000        0x8 build/src/main.o
+ .text._Z20Button_Simple_Togglev
+                0x00000000       0x38 build/src/main.o
+ .ARM.exidx.text._Z20Button_Simple_Togglev
+                0x00000000        0x8 build/src/main.o
+ .text._Z22Button_Advanced_Togglev
+                0x00000000       0x40 build/src/main.o
+ .ARM.exidx.text._Z22Button_Advanced_Togglev
+                0x00000000        0x8 build/src/main.o
+ .llvm_addrsig  0x00000000        0x8 build/src/main.o
  .text          0x00000000        0x0 build/src/robot-config.o
  .llvm_addrsig  0x00000000        0x3 build/src/robot-config.o
  .text          0x00000000        0x0 C:\Program Files (x86)\VEX Robotics\VEXcode Pro V5\sdk/vexv5\libv5rt.a(v5_startup.c.obj)

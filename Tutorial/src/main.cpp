@@ -31,8 +31,20 @@
         - See Figure 3.3
     - Buttons
       - hold: something happens only when you are pressing and nothing happens when you are not pressing
+        - functions depends on button control itself
         - See Figure 3.4
       - toggle: something happens when you press the button once and something stops when pressed again
+        - Simple: using a vex pre-defined method
+          - pros: Easy to set up
+          - cons: Usage is limited to an extent
+          - See Figure 3.5
+        - Advanced: using a custom / traditional method 
+          - pros: Only limit is your skill and idea
+          - cons: Complicated to set up
+        - "trigger variable" (not an official term): variables that are responsible for turing on and off the function
+        - button activates the trigger variable
+        - function depends on trigger variable's value
+        - See Figure 3.5
       - macro: small chunk of auton built into the user control
 */
 
@@ -219,6 +231,48 @@ void Example2() {
     }
   }
 
+// ---------------------------------------------------------------------------------------
+
+
+// ----------------- Figure 3.5 -----------------
+
+  /* Button toggle (simple) */
+
+  // We need to have a separate function that contains all the tasks 
+
+  void Do_something() {
+    // does something
+  }
+
+  void Button_Simple_Toggle() {
+    controller Controller;
+    Controller.ButtonA.pressed(Do_something); // When Button "A" is pressed, the function "Do_something" runs
+  }
+// ---------------------------------------------------------------------------------------
+
+
+// ----------------- Figure 3.6 -----------------
+
+  /* Button toggle (advanced) */
+
+  void Button_Advanced_Toggle() {
+    // predefined in global scope (outside of the function)
+    controller Control;
+    bool trigger_variable = false;
+    bool is_toggle = false;
+
+    // In local scope (inside function)
+    if (Control.ButtonA.pressing() && !trigger_variable) { // activates the trigger variable only when button "A" is pressed and trigger_variable is false;
+      trigger_variable = true;
+      is_toggle = !is_toggle; // When "is_toggle" is false, it becomes true. When "is_toggle" is true, it becomes false.
+    }
+    else if (!Control.ButtonA.pressing()) { // allows you to toggle / untoggle only when the button is not pressed and pressed again.
+      trigger_variable = false;
+    }
+    if (is_toggle) { // Toggle activated when is_toggle is true
+      // something happens 
+    }
+  }
 // ---------------------------------------------------------------------------------------
 
 int main() {
